@@ -1,17 +1,16 @@
-
 use Resturant
 
-create TABLE admin (
-  admin_id int primary key,
-  username nvarchar(222) NOT NULL,
+CREATE TABLE Admin (
+  Admin_id int primary key,
+  Username nvarchar(222) NOT NULL,
   password nvarchar(222) NOT NULL,
   )
 
-  insert into admin values(1,'Akshay Kumar','Akshay@1234')
+  insert into Admin values(1,'Akshay Kumar','Akshay@1234')
 
   
 
-  CREATE TABLE restaurant (
+  CREATE TABLE Restaurant (
   rs_id int NOT NULL primary key,
   rs_name varchar(222) NOT NULL,
   rs_email varchar(222) NOT NULL,
@@ -22,10 +21,10 @@ create TABLE admin (
   opening_days varchar(222) NOT NULL,
   rs_address nvarchar(222) NOT NULL
 )
-insert into restaurant values(1,'Dil Se Foodie','dilsefoodie@gmail.com','99978*****',
+insert into Restaurant values(1,'Dil Se Foodie','dilsefoodie@gmail.com','99978***',
 'www.dilsefoodie.in','7:30am','8.00pm','Everyday','NH-1,Near HP Petrol Pump,Haryana')
 
-CREATE TABLE users (
+ CREATE TABLE Users (
   u_id int primary key Identity NOT NULL,
   f_name varchar(222) NOT NULL,
   l_name varchar(222) NOT NULL,
@@ -34,7 +33,7 @@ CREATE TABLE users (
   password varchar(222) NOT NULL
  )
  
- CREATE TABLE order_details(
+CREATE TABLE Order_Details(
   o_id int NOT NULL,
   u_id int NOT NULL,
   title varchar(222) NOT NULL,
@@ -45,19 +44,12 @@ CREATE TABLE users (
    FOREIGN KEY (u_id) REFERENCES users(u_id)
 )
 
-
-
-
-
-
-create table Foodings
+CREATE TABLE Foodings
 (Id int primary key identity,
 Dish_Name nvarchar(50) not null,
 Veg_NonVeg nvarchar(50) not null check(Veg_NonVeg in ('Veg','Non Veg','Breads')),
 Dish_Type nvarchar(50) not null check(Dish_Type in ('Starters','Main Course','Desert','Drinks')),
-Price float
-
-)
+Price float)
 
 insert into Foodings values('Chicken Tikka', 'Non veg','Starters',230)
 insert into Foodings values('Seekh Kebabs','Non veg','Starters',350)
@@ -127,9 +119,8 @@ select * from Foodings where Dish_Type='Drinks'
 ---------All Main Course items
 select * from Foodings where Dish_Type='Main Course'
 
-select*from admin
+select*from Admin
 
-select* from restaurant
-select* from users
-select* from order_details
-
+select* from Restaurant
+select* from Users
+select* from Order_Details
