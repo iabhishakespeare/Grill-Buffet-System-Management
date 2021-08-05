@@ -13,7 +13,7 @@ CREATE TABLE Admin (
   CREATE TABLE Restaurant (
   rs_id int NOT NULL primary key,
   rs_name varchar(222) NOT NULL,
-  rs_email varchar(222) NOT NULL,
+  rs_email varchar(222) NOT NULL unique check (rs_email like '%_@__%.__%'),
   rs_phone varchar(222) NOT NULL unique check(rs_phone like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
   rs_url varchar(222) NOT NULL,
   opening_time varchar(222) NOT NULL,
@@ -28,7 +28,7 @@ insert into Restaurant values(1,'Dil Se Foodie','dilsefoodie@gmail.com','9997823
   u_id int primary key Identity NOT NULL,
   f_name varchar(222) NOT NULL,
   l_name varchar(222) NOT NULL,
-  email varchar(222) NOT NULL,
+  email varchar(222) NOT NULL unique check (email like '%_@__%.__%'),
   phone varchar(222) NOT NULL unique check(phone like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
   password varchar(222) NOT NULL
  )
