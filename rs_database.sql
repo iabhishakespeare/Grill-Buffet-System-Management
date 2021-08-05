@@ -1,8 +1,8 @@
 use Resturant
 
 CREATE TABLE Admin (
-  Admin_id int primary key,
-  Username nvarchar(222) NOT NULL,
+  admin_id int primary key,
+  username nvarchar(222) NOT NULL,
   password nvarchar(222) NOT NULL,
   )
 
@@ -14,14 +14,14 @@ CREATE TABLE Admin (
   rs_id int NOT NULL primary key,
   rs_name varchar(222) NOT NULL,
   rs_email varchar(222) NOT NULL,
-  rs_phone varchar(222) NOT NULL,
+  rs_phone varchar(222) NOT NULL unique check(rs_phone like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
   rs_url varchar(222) NOT NULL,
   opening_time varchar(222) NOT NULL,
   closing_time varchar(222) NOT NULL,
   opening_days varchar(222) NOT NULL,
   rs_address nvarchar(222) NOT NULL
 )
-insert into Restaurant values(1,'Dil Se Foodie','dilsefoodie@gmail.com','99978***',
+insert into Restaurant values(1,'Dil Se Foodie','dilsefoodie@gmail.com','9997823982',
 'www.dilsefoodie.in','7:30am','8.00pm','Everyday','NH-1,Near HP Petrol Pump,Haryana')
 
  CREATE TABLE Users (
@@ -29,7 +29,7 @@ insert into Restaurant values(1,'Dil Se Foodie','dilsefoodie@gmail.com','99978**
   f_name varchar(222) NOT NULL,
   l_name varchar(222) NOT NULL,
   email varchar(222) NOT NULL,
-  phone varchar(222) NOT NULL,
+  phone varchar(222) NOT NULL unique check(phone like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
   password varchar(222) NOT NULL
  )
  
