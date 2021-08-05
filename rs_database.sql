@@ -2,17 +2,17 @@
 use Resturant
 
 create TABLE admin (
-  
+  admin_id int primary key,
   username nvarchar(222) NOT NULL,
   password nvarchar(222) NOT NULL,
   )
 
-  insert into admin values('Akshay Kumar','Akshay@1234')
+  insert into admin values(1,'Akshay Kumar','Akshay@1234')
 
   
 
   CREATE TABLE restaurant (
-  rs_id int NOT NULL,
+  rs_id int NOT NULL primary key,
   rs_name varchar(222) NOT NULL,
   rs_email varchar(222) NOT NULL,
   rs_phone varchar(222) NOT NULL,
@@ -41,7 +41,8 @@ CREATE TABLE users (
   quantity int NOT NULL,
   price float NOT NULL,
   status varchar(222) DEFAULT NULL,
-  date datetime NOT NULL
+  date datetime NOT NULL,
+   FOREIGN KEY (u_id) REFERENCES users(u_id)
 )
 
 
